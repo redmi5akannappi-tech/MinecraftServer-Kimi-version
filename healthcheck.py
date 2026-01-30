@@ -1,5 +1,5 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
 import sys
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -10,5 +10,5 @@ class Handler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         pass
 
-print("[HTTP] Server on :10000", flush=True)
+print("[HEALTH] Starting on port 10000", file=sys.stderr, flush=True)
 HTTPServer(("0.0.0.0", 10000), Handler).serve_forever()
